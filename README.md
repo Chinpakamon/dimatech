@@ -1,4 +1,4 @@
-# Async Banking API Service
+# Dimatech Test API Service
 
 Асинхронное REST API для работы с пользователями, администраторами, счетами и платежами.  
 Реализовано на **FastAPI**, **SQLAlchemy (async)** и **PostgreSQL**, полностью контейнеризовано с помощью Docker и docker-compose.
