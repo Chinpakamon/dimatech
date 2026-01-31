@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:15
+    container_name: dimatech-db
+    restart: always
+    env_file:
+    - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: dimatech-app
+    depends_on:
+      - db
+    env_file:
+    - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: ["sh", "/app/entrypoint.sh"]
+
+volumes:
+  postgres_data:
